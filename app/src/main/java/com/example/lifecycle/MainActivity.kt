@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         val intent = Intent(this, EditActivity::class.java)
-        intent.putExtra("NAME", "JOHN")
+        intent.putExtra(NAME, "JOHN")
 
 //        startActivity(intent)
         startActivityForResult(intent, 444)
@@ -75,10 +75,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 //                Toast.makeText(this, "Name: $name", Toast.LENGTH_SHORT).show()
 //                text.text = name
 //            }
-            text.text = data?.getStringExtra("INPUT_TEXT")
+            text.text = data?.getStringExtra(INPUT_TEXT)
             return
         }
 
         super.onActivityResult(requestCode, resultCode, data)
+    }
+
+    companion object {
+        const val NAME = "NAME"
+        const val INPUT_TEXT = "INPUT_TEXT"
     }
 }

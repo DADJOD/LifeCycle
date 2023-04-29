@@ -21,7 +21,7 @@ class EditActivity : AppCompatActivity(), View.OnClickListener {
 
         val intent = intent
 //        val strIntent = intent.getStringExtra("NAME")
-        edit.setText(intent.getStringExtra("NAME"))
+        edit.setText(intent.getStringExtra(MainActivity.NAME))
 
         button.setOnClickListener(this)
 
@@ -68,10 +68,13 @@ class EditActivity : AppCompatActivity(), View.OnClickListener {
         val inputText = edit.text.toString()
 
         val intent2 = Intent()
-        intent2.putExtra("INPUT_TEXT", inputText)
+        intent2.putExtra(MainActivity.INPUT_TEXT, inputText)
         setResult(RESULT_OK, intent2)
         onBackPressed()
     }
 
-
+//    companion object {
+//        const val INPUT_TEXT = "INPUT_TEXT"
+//        const val NAME = "NAME"
+//    }
 }
